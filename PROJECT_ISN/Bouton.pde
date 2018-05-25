@@ -6,13 +6,15 @@ class Bouton {
   color pressGray = color(0,0,0,0); // Value when mouse is over and pressed
   boolean over = false; // True when the mouse is over
   boolean pressed = false; // True when the mouse is over and pressed
-  PImage bg;
+  PImage bg, noir, blanc;
  
-  Bouton(int xp, int yp, int s, PImage bag) {
+  Bouton(int xp, int yp, int s, PImage bag, PImage cnoire, PImage cblanc) {
     x = xp;
     y = yp;
     size = s;
-    bg= bag;
+    bg = bag;
+    noir = cnoire;
+    blanc = cblanc;
   }
  
   void update() {
@@ -39,13 +41,9 @@ class Bouton {
  
   void display() {
     if (pressed == true) {
-      fill(pressGray);
-      stroke(255);
-      rect(x, y, size, size);
+      image(blanc, x, y);
     } else if (over == true) {
-      fill(overGray);
-      stroke(255);
-      rect(x, y, size, size);
+      image(blanc, x, y);
     } else {
       image(bg, x, y);
     }
