@@ -2,6 +2,7 @@ import controlP5.*;
 ControlP5 cp5;
 PImage bgcase, noir, blanc;
 Bouton[][] grid;
+int player;
 
 void setup(){
   size(512,512);
@@ -17,7 +18,7 @@ void setup(){
     
     for(int j=0;j<8;j++){
         
-      grid[i][j] = new Bouton(i*64,j*64,64, bgcase, noir, blanc);
+      grid[i][j] = new Bouton(i*64, j*64, 64);
       
     }
   }
@@ -36,6 +37,27 @@ void mousePressed(){
   for (int x = 0; x < 8 ; x++){
     for (int y = 0; y < 8 ; y++){
       grid[x][y].press();
+      if(grid[x][y].getPlayer() == 1){
+        grid[x][y].setPlayer(2);
+      }
+      else if(grid[x][y].getPlayer() == 2){
+        grid[x][y].setPlayer(1);
+      }
     }
   }
+}
+
+void mouseReleased(){
+  boolean saidOnce = false;
+  for (int x = 0; x < 8 ; x++){
+    for (int y = 0; y < 8 ; y++){
+      grid[x][y].release();
+      player = grid[x][y].getPlayer();
+      if(saidOnce == false){
+        println(player);
+        saidOnce = true;
+      }
+    }
+  }
+  saidOnce = false;
 }

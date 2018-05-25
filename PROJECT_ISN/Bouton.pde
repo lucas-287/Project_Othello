@@ -1,45 +1,47 @@
-class Bouton {
-  int x, y; // The x- and y-coordinates
-  int size; // Dimension (width and height)
-  color baseGray = color(128,128,128,255); // Default gray value
-  color overGray = color(0,255,0,255); // Value when mouse is over the button
-  color pressGray = color(0,0,0,0); // Value when mouse is over and pressed
-  boolean over = false; // True when the mouse is over
-  boolean pressed = false; // True when the mouse is over and pressed
-  PImage bg, noir, blanc;
+public class Bouton {
+ private int x, y; // The x- and y-coordinates
+ private int size; // Dimension (width and height)
+ private boolean over = false; // True when the mouse is over
+ private boolean pressed = false; // True when the mouse is over and pressed
+ private PImage bg; 
+ private PImage noir;
+ private PImage blanc;
+ private int player;
+  
  
-  Bouton(int xp, int yp, int s, PImage bag, PImage cnoire, PImage cblanc) {
-    x = xp;
-    y = yp;
-    size = s;
-    bg = bag;
-    noir = cnoire;
-    blanc = cblanc;
+  public Bouton(int xp, int yp, int s) {
+    this.x = xp;
+    this.y = yp;
+    this.size = s;
+    this.player = 1;
+    this.bg = loadImage("case.png");
+    this.noir = loadImage("noir.png");
+    this.blanc = loadImage("blanc.png");
   }
  
-  void update() {
+  public void update() {
     if ((mouseX >= x) && (mouseX <= x + size) &&
       (mouseY >= y) && (mouseY <= y + size)) {
-      over = true;
+      this.over = true;
     } else {
-      over = false;
+      this.over = false;
     }
   }
  
-  boolean press() {
+  public boolean press() {
     if (over == true) {
-      pressed = true;
+      this.pressed = true;
       return true;
     } else {
       return false;
     }
   }
  
-  void release() {
-    pressed = false; // Set to false when the mouse is released
+  public void release() {
+    this.pressed = false; // Set to false when the mouse is released
   }
  
-  void display() {
+  public void display() {
     if (pressed == true) {
       image(noir, x, y);
     } else if (over == true) {
@@ -47,6 +49,14 @@ class Bouton {
     } else {
       image(bg, x, y);
     }
-    
+  }
+  
+  public void setPlayer(int joueur){
+    if(joueur == 1 || joueur == 2)
+    this.player = joueur;
+  }
+  
+  public int getPlayer(){
+    return this.player;
   }
 }
