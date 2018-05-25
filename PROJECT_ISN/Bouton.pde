@@ -10,27 +10,27 @@ public class Bouton {
   
  
   public Bouton(int xp, int yp, int s) {
-    this.x = xp;
-    this.y = yp;
-    this.size = s;
-    this.player = 1;
-    this.bg = loadImage("case.png");
-    this.noir = loadImage("noir.png");
-    this.blanc = loadImage("blanc.png");
+    x = xp;
+    y = yp;
+    size = s;
+    player = 1;
+    bg = loadImage("case.png");
+    noir = loadImage("noir.png");
+    blanc = loadImage("blanc.png");
   }
  
   public void update() {
     if ((mouseX >= x) && (mouseX <= x + size) &&
       (mouseY >= y) && (mouseY <= y + size)) {
-      this.over = true;
+      over = true;
     } else {
-      this.over = false;
+      over = false;
     }
   }
  
   public boolean press() {
     if (over == true) {
-      this.pressed = true;
+      pressed = true;
       return true;
     } else {
       return false;
@@ -38,7 +38,7 @@ public class Bouton {
   }
  
   public void release() {
-    this.pressed = false; // Set to false when the mouse is released
+    pressed = false; // Set to false when the mouse is released
   }
  
   public void display() {
@@ -53,10 +53,10 @@ public class Bouton {
   
   public void setPlayer(int joueur){
     if(joueur == 1 || joueur == 2)
-    this.player = joueur;
+    player = joueur;
   }
   
   public int getPlayer(){
-    return this.player;
+    return player;
   }
 }
