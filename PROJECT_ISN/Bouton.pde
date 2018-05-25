@@ -41,7 +41,7 @@ class Bouton {
  
   void display() {
     if (pressed == true) {
-      image(blanc, x, y);
+      image(noir, x, y);
     } else if (over == true) {
       image(blanc, x, y);
     } else {
