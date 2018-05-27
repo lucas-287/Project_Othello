@@ -84,6 +84,12 @@ public class Bouton {
     }
   }
   
+  public void poserJeton(PImage couleur, int x, int y){
+    
+    image(couleur, x, y);
+    
+  }
+  
   public void release() {
     pressed = false; 
   }

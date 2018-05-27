@@ -19,9 +19,17 @@ void setup(){
     for(int j=0;j<8;j++){
         
       grid[i][j] = new Bouton(i*64, j*64, 64);
+      if( (i==3 && j == 3) || (i == 4 && j == 4)){
+        grid[i][j].poserJeton(blanc,i,j);
+      }
       
     }
+    
   }
+  grid[3][3].bg = blanc;
+  grid[4][4].bg = blanc;
+  grid[3][4].bg = noir;
+  grid[4][3].bg = noir;
 }
 void draw(){
   
