@@ -27,8 +27,10 @@ void draw(){
   
   for (int x = 0; x < 8 ; x++){
     for (int y = 0; y < 8 ; y++){
+      
       grid[x][y].update();
       grid[x][y].display();
+      
     }
   }
 }
@@ -37,12 +39,7 @@ void mousePressed(){
   for (int x = 0; x < 8 ; x++){
     for (int y = 0; y < 8 ; y++){
       grid[x][y].press();
-      if(grid[x][y].getPlayer() == 1){
-        grid[x][y].setPlayer(2);
-      }
-      else if(grid[x][y].getPlayer() == 2){
-        grid[x][y].setPlayer(1);
-      }
+      grid[x][y].changementJoueur();
     }
   }
 }
