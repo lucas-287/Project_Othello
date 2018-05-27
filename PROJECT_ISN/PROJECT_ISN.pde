@@ -1,5 +1,3 @@
-import controlP5.*;
-ControlP5 cp5;
 PImage bgcase, noir, blanc;
 Bouton[][] grid;
 int player;
@@ -8,7 +6,6 @@ void setup(){
   size(512,512);
   smooth();
   
-  cp5 = new ControlP5(this);
   grid = new Bouton [8][8]; //création tableau/grille de jeu
   bgcase = loadImage("case.png");
   blanc = loadImage("blanc.png");
@@ -19,10 +16,7 @@ void setup(){
     for(int j=0;j<8;j++){
         
       grid[i][j] = new Bouton(i*64, j*64, 64);
-      if( (i==3 && j == 3) || (i == 4 && j == 4)){
-        grid[i][j].poserJeton(blanc,i,j);
-      }
-      
+            
     }
     
   }

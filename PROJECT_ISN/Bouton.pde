@@ -10,6 +10,7 @@ public class Bouton {
  private String couleur;
  private boolean caseok;
  private PImage posable;
+ private boolean pose;
   
  
   public Bouton(int xp, int yp, int s) {
@@ -24,37 +25,6 @@ public class Bouton {
     couleur = "vide";
   }
  
-  /*public void update() {
-    if ((mouseX >= x) && (mouseX <= x + size) &&
-        (mouseY >= y) && (mouseY <= y + size)) {
-      over = true;
-    } else {
-      over = false;
-    }
-  }
- 
-  public boolean press() {
-    if (over == true) {
-      pressed = true;
-      return true;
-    } else {
-      return false;
-    }
-  }
- 
-  public void release() {
-    pressed = false; // Set to false when the mouse is released
-  }
- 
-  public void display() {
-    if (pressed == true) {
-      image(noir, x, y);
-    } else if (over == true) {
-      image(blanc, x, y);
-    } else {
-      image(bg, x, y);
-    }
-  }*/
   
   public void update(){
     if ((mouseX >= x) && (mouseX <= x + size) &&
